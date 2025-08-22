@@ -38,30 +38,3 @@
 >
 > ---
 >
-> ## தமிழ் விளக்கம் (with English keywords kept as‑is)
->
-> - இந்த project **SMS spam/phishing detection** க்கு ஒரு **end‑to‑end starter**.
-> - **Pipeline**: `TfidfVectorizer` → `LogisticRegression` (binary classification).
-> - **train.py**: உங்கள் `CSV` file (columns: `label`, `text`) எடுத்துக்கொண்டு **train/validation split** செய்து, **metrics** (accuracy, precision, recall, f1) print செய்து, **model.joblib** ஆக save பண்ணும்.
-> - **predict.py**: ஒரு single message க்கு **label** (ham/spam) மற்றும் **probability** return செய்யும்.
-> - **app.py**: **FastAPI** மூலம் `/predict` endpoint. JSON `{"text": "..."} ` அனுப்பினால் prediction தரும்.
->
-> ### உங்கள் data format
-> CSV with headers like:
-> ```csv
-> label,text
-> ham,I'll call you later
-> spam,You have won a FREE lottery! Click here now
-> ```
->
-> ### Notes
-> - `requirements.txt` install பண்ணும் போது ஏதாவது error வந்தால், உங்கள் Python version >=3.9 இருக்கணும்.
-> - Accuracy improve செய்ய: **class_weight**, **ngram_range**, **min_df**, **max_df**, **classifier** (e.g., LinearSVC) try பண்ணலாம்.
-> - **Tamil/Indian languages** க்காக: `token_pattern`, or `indic-nlp` style tokenizers explore பண்ணலாம்.
->
-> ### Next steps (ideas)
-> - Add **MLflow** for experiment tracking.
-> - Add **Dockerfile** & deploy on cloud (Render/Heroku/Vercel + serverless).
-> - Add **streamlit** UI for quick demo.
->
-> — Built for Bharath (aka “Jeeva”) to practice ML end‑to‑end 🙂
